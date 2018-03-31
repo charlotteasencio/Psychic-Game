@@ -4,8 +4,16 @@ var wins = 0;
 var losses = 0;
 var guessesLeft = 9;
 var guessesSoFar = [];
+var lettertoGuess = null;
 
-for (i = 0; guessesLeft > 0; i++) {
+//reset
+var reset = function(){
+    guessesLeft = 9;
+    guessesSoFar = [];
+    computerGuess = letterChoices[Math.floor(Math.random() * letterChoices.length)];
+    console.log(computerGuess);
+}
+
 //computer chooses a random letter
 var computerGuess = letterChoices[Math.floor(Math.random() * letterChoices.length)];
     console.log(computerGuess);
@@ -18,6 +26,7 @@ document.onkeypress = function(event) {
 if(userGuess === computerGuess) {
     wins++;
     guesses = 9;
+    reset();
 //user guess does not match computer guess
 }else{
     guessesLeft--;
@@ -28,6 +37,8 @@ if(guessesLeft === 0) {
     losses++;
     guessesLeft = 9;
     //start loop over, get computer to choose another letter
+    reset();
+
     }
 
 //change html elements according to guesses, wins, losses
@@ -35,5 +46,4 @@ document.getElementById('wins').innerHTML = "Wins: " + wins;
 document.getElementById('losses').innerHTML = "losses: " + losses;
 document.getElementById('guessesLeft').innerHTML = "Guesses left: " + guessesLeft;
 document.getElementById("guessesSoFar").innerHTML= "Your Guesses so Far: " + guessesSoFar.join(", ");
-    }
 }
