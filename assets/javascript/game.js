@@ -34,7 +34,6 @@ if(userGuess === computerGuess) {
 //guessesLeft equals zero but user guess never equaled computer guess
 if(guessesLeft === 0) {
     losses++;
-    guessesLeft = 9;
     //start loop over, get computer to choose another letter
     reset();
 
