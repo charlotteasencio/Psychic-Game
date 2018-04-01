@@ -24,7 +24,6 @@ document.onkeypress = function(event) {
 //user guess matches computer guess
 if(userGuess === computerGuess) {
     wins++;
-    guesses = 9;
     reset();
 //user guess does not match computer guess
 }else{
